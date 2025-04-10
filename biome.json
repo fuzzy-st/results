@@ -7,8 +7,14 @@
   },
   "files": {
     "ignoreUnknown": false,
-    "ignore": ["node_modules", "dist", "coverage"],
-    "include": ["src"]
+    "ignore": [
+      "node_modules",
+      "dist",
+      "coverage"
+    ],
+    "include": [
+      "."
+    ]
   },
   "formatter": {
     "enabled": true,
