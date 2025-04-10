@@ -1,6 +1,7 @@
 #!/usr/bin/env node
-const { execSync } = require('child_process');
-const fs = require('fs');
+
+import { execSync } from 'node:child_process';
+import fs from 'node:fs';
 
 // Check if .git-hooks directory exists
 if (!fs.existsSync('.git-hooks')) {
