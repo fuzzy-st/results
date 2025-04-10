@@ -1,5 +1,5 @@
 {
-  "*.{js,ts}": [
+  ".{js,ts,jsx,tsx}": [
     "biome check --write"
   ]
 }
