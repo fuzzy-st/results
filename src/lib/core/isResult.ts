@@ -17,8 +17,11 @@ import type { Result } from "~/types";
 
 export function isResult(value: any): value is Result<any, any> {
     return (
-        value &&
+        !!value &&
         typeof value === "object" &&
         (value.status === "success" || value.status === "error")
+        && (value.data !== undefined || value.error !== undefined)
+        && (value.data !== null || value.error !== null)
+
     );
 }
