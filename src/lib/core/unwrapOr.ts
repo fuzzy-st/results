@@ -1,7 +1,7 @@
 import type { Result } from "~/types";
 
 /**
- * Returns the success data or a default value#
+ * Returns the success data or a default value
  * 
  * @param result - The result to unwrap
  * @param defaultValue - The default value to return if the result is an error
