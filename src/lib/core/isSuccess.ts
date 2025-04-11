@@ -18,5 +18,9 @@ import type { Result } from "~/types";
 export function isSuccess<T, E>(
     result: Result<T, E>,
 ): result is { status: "success"; data: T } {
-    return result.status === "success";
+    return result !== null
+        && typeof result === "object"
+        && result.status === "success"
+        && result.data !== undefined
+        && (result.data !== null || typeof result.data === "object");
 }
