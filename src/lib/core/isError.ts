@@ -16,5 +16,10 @@ import type { Result } from "~/types";
  * ```
  */
 export function isError<T, E>(result: Result<T, E>): result is { status: "error"; error: E } {
-    return result.status === "error";
+    return typeof result === "object"
+        && result !== null
+        && result.status === "error"
+        && result.error !== undefined
+        && (result.error instanceof Error || typeof result.error === "string" || typeof result.error === "object")
+        && (result.error !== null);
 }
