@@ -21,6 +21,5 @@ export function isSuccess<T, E>(
     return result !== null
         && typeof result === "object"
         && result.status === "success"
-        && result.data !== undefined
         && (result.data !== null || typeof result.data === "object");
 }
