@@ -66,46 +66,71 @@ describe('(CORE) `unwrapOr function', () => {
     });
 
     test('should work with different data types', () => {
+
         // Number
-        const numberResult = success(42);
-        assert.strictEqual(unwrapOr(numberResult, 0), 42);
+        const numberSuccessResult = success(42);
+        assert.strictEqual(unwrapOr(numberSuccessResult, 0), 42);
+        const numberErrorResult = error(new Error('Number error'));
+        assert.strictEqual(unwrapOr(numberErrorResult, 0), 0);
 
         // String
-        const stringResult = success('hello');
-        assert.strictEqual(unwrapOr(stringResult, 'default'), 'hello');
+        const stringSuccessResult = success('hello');
+        assert.strictEqual(unwrapOr(stringSuccessResult, 'default'), 'hello');
+        const stringErrorResult = error(new Error('String error'));
+        assert.strictEqual(unwrapOr(stringErrorResult, 'default'), 'default');
 
         // Object
-        const objectResult = success({ name: 'John', age: 30 });
-        //@ts-ignore
-        assert.deepStrictEqual(unwrapOr(objectResult, {}), { name: 'John', age: 30 });
+        const defaultUser = { id: 0, name: 'Guest' };
+        const userSuccessResult = success({ id: 1, name: 'John' });
+        assert.deepStrictEqual(unwrapOr(userSuccessResult, defaultUser), { id: 1, name: 'John' });
+        const userErrorResult = error(new Error('User error'));
+        assert.deepStrictEqual(unwrapOr(userErrorResult, defaultUser), defaultUser);
 
         // Null
         const nullResult = success(null);
         assert.strictEqual(unwrapOr(nullResult, {}), null);
-    });
 
-    test('should return the default value when unwrapping an error result with a different type', () => {
+        // Error
         const errorResult = error(new Error('Something went wrong'));
         assert.strictEqual(unwrapOr(errorResult, 'default'), 'default');
-    });
-    test('should return the default value when unwrapping an error result with a null value', () => {
-        const errorResult = error(new Error('Something went wrong'));
-        assert.strictEqual(unwrapOr(errorResult, null), null);
-    }
-    );
-    test('should return the default value when unwrapping an error result with an undefined value', () => {
-        const errorResult = error(new Error('Something went wrong'));
         assert.strictEqual(unwrapOr(errorResult, undefined), undefined);
-    }
-    );
-    test('should return the default value when unwrapping an error result with a boolean value', () => {
-        const errorResult = error(new Error('Something went wrong'));
         assert.strictEqual(unwrapOr(errorResult, false), false);
-    }
-    );
-    test('should return the default value when unwrapping an error result with a number value', () => {
-        const errorResult = error(new Error('Something went wrong'));
         assert.strictEqual(unwrapOr(errorResult, 0), 0);
-    }
-    );
+
+        // Undefined
+        const undefinedResult = success(undefined);
+        assert.strictEqual(unwrapOr(undefinedResult, 'default'), undefined);
+
+    });
+
+    test('should work with lazy evaluation of default value', () => {
+        // Default value as a function
+        const errorResult = error(new Error('Computation error'));
+
+        const defaultValueFn = () => {
+            // Simulate some computation
+            return 42;
+        };
+
+        assert.strictEqual(unwrapOr(errorResult, defaultValueFn()), 42);
+    });
+
+    test('should preserve type when using default value', () => {
+        interface User {
+            id: number;
+            name: string;
+        }
+
+        const defaultUser: User = { id: 0, name: 'Guest' };
+
+        // Success case
+        const successResult = success<User>({ id: 1, name: 'John' });
+        const successValue = unwrapOr(successResult, defaultUser);
+        assert.deepStrictEqual(successValue, { id: 1, name: 'John' });
+
+        // Error case
+        const errorResult = error<User, Error>(new Error('User not found'));
+        const errorValue = unwrapOr(errorResult, defaultUser);
+        assert.deepStrictEqual(errorValue, defaultUser);
+    });
 })
