@@ -1,7 +1,7 @@
 {
-  "name": "@fuzzy-street/errors",
+  "name": "@fuzzy-street/results",
   "version": "1.0.0",
-  "description": "Type-safe custom error classes with full context support",
+  "description": "Type-safe custom `Result<T,E>` library for TypeScript, inspired by Rust's Result and Option types. Provides a way to handle success and error cases in a type-safe manner, making it easier to write robust and maintainable code.",
   "main": "dist/main.js",
   "module": "dist/main.mjs",
   "types": "dist/main.d.ts",
@@ -53,10 +53,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/fuzzy-st/errors.git"
+    "url": "git+https://github.com/fuzzy-st/results.git"
   },
   "bugs": {
-    "url": "https://github.com/fuzzy-st/errors/issues"
+    "url": "https://github.com/fuzzy-st/results/issues"
   },
-  "homepage": "https://github.com/fuzzy-st/errors#readme"
+  "homepage": "https://github.com/fuzzy-st/results#readme"
 }
