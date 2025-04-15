@@ -1,20 +1,22 @@
 {
   "name": "@fuzzy-street/results",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "Type-safe custom `Result<T,E>` library for TypeScript, inspired by Rust's Result and Option types. Provides a way to handle success and error cases in a type-safe manner, making it easier to write robust and maintainable code.",
   "main": "dist/main.js",
   "module": "dist/main.mjs",
   "types": "dist/main.d.ts",
   "type": "module",
   "files": [
-    "dist",
-    "README.md",
-    "LICENSE"
+    "src/lib",
+    "src/docs"
   ],
   "keywords": [
-    "error",
-    "typescript",
-    "context"
+    "benchmark",
+    "performance",
+    "testing",
+    "profiling",
+    "statistics",
+    "metrics"
   ],
   "author": "aFuzzyBear",
   "license": "MIT",
@@ -26,11 +28,11 @@
     "test": "node --import tsx --experimental-test-coverage --test-reporter=spec --test \"**/*.test.{ts,js}\"",
     "test:ci": "node --import tsx --experimental-test-coverage --test-reporter=spec --test \"**/*.test.{ts,js}\" || echo 'No test files found or tests failed'",
     "test:watch": "node --import tsx --test-reporter=spec  --test --watch \"**/*.test.{ts,js}\"",
+    "benchmark": "tsx --no-cache \"src/tests/benchmarks/basic.bench.ts\"",
     "check": "tsc --noEmit",
     "lint": "biome lint --fix",
     "format": "biome format --fix --write",
     "setup-hooks": "node setup-git-hooks.js",
-    "postinstall": "node -e \"try { require('./setup-git-hooks.js') } catch(e) { console.log('Git hooks setup skipped.') }\"",
     "release": "standard-version",
     "release:minor": "standard-version --release-as minor",
     "release:patch": "standard-version --release-as patch",
@@ -41,22 +43,25 @@
     "@biomejs/biome": "^1.9.4",
     "@commitlint/cli": "^19.8.0",
     "@commitlint/config-conventional": "^19.8.0",
-    "@types/node": "^22.14.0",
-    "lint-staged": "^15.5.0",
+    "@types/node": "^22.14.1",
+    "lint-staged": "^15.5.1",
     "standard-version": "^9.5.0",
     "tsup": "^8.4.0",
     "tsx": "^4.19.3",
-    "typescript": "^5.8.2"
+    "typescript": "^5.8.3"
   },
   "directories": {
     "doc": "docs"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/fuzzy-st/results.git"
+    "url": "git+https://github.com/fuzzy-st/benchmarks.git"
   },
   "bugs": {
-    "url": "https://github.com/fuzzy-st/results/issues"
+    "url": "https://github.com/fuzzy-st/benchmarks/issues"
   },
-  "homepage": "https://github.com/fuzzy-st/results#readme"
+  "homepage": "https://github.com/fuzzy-st/benchmarks#readme",
+  "dependencies": {
+    "@fuzzy-street/benchmarks": "^0.3.2"
+  }
 }
