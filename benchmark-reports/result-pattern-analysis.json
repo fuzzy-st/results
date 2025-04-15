@@ -1,0 +1,207 @@
+{
+  "title": "Benchmark Report",
+  "timestamp": "2025-04-15T21:10:17.613Z",
+  "systemInfo": {
+    "platform": "linux",
+    "nodeVersion": "v22.14.0",
+    "architecture": "x64",
+    "cpus": [
+      {
+        "model": "12th Gen Intel(R) Core(TM) i7-12700H",
+        "speed": 0
+      },
+      {
+        "model": "12th Gen Intel(R) Core(TM) i7-12700H",
+        "speed": 0
+      },
+      {
+        "model": "12th Gen Intel(R) Core(TM) i7-12700H",
+        "speed": 0
+      },
+      {
+        "model": "12th Gen Intel(R) Core(TM) i7-12700H",
+        "speed": 0
+      },
+      {
+        "model": "12th Gen Intel(R) Core(TM) i7-12700H",
+        "speed": 0
+      },
+      {
+        "model": "12th Gen Intel(R) Core(TM) i7-12700H",
+        "speed": 0
+      },
+      {
+        "model": "12th Gen Intel(R) Core(TM) i7-12700H",
+        "speed": 0
+      },
+      {
+        "model": "12th Gen Intel(R) Core(TM) i7-12700H",
+        "speed": 0
+      },
+      {
+        "model": "12th Gen Intel(R) Core(TM) i7-12700H",
+        "speed": 0
+      },
+      {
+        "model": "12th Gen Intel(R) Core(TM) i7-12700H",
+        "speed": 0
+      },
+      {
+        "model": "12th Gen Intel(R) Core(TM) i7-12700H",
+        "speed": 0
+      },
+      {
+        "model": "12th Gen Intel(R) Core(TM) i7-12700H",
+        "speed": 0
+      },
+      {
+        "model": "12th Gen Intel(R) Core(TM) i7-12700H",
+        "speed": 0
+      },
+      {
+        "model": "12th Gen Intel(R) Core(TM) i7-12700H",
+        "speed": 0
+      },
+      {
+        "model": "12th Gen Intel(R) Core(TM) i7-12700H",
+        "speed": 0
+      },
+      {
+        "model": "12th Gen Intel(R) Core(TM) i7-12700H",
+        "speed": 0
+      },
+      {
+        "model": "12th Gen Intel(R) Core(TM) i7-12700H",
+        "speed": 0
+      },
+      {
+        "model": "12th Gen Intel(R) Core(TM) i7-12700H",
+        "speed": 0
+      },
+      {
+        "model": "12th Gen Intel(R) Core(TM) i7-12700H",
+        "speed": 0
+      },
+      {
+        "model": "12th Gen Intel(R) Core(TM) i7-12700H",
+        "speed": 0
+      }
+    ],
+    "totalMemory": 8185561088,
+    "freeMemory": 5837234176
+  },
+  "benchmarks": [
+    {
+      "name": "Function Call Overhead: Direct Function Calling",
+      "results": {
+        "duration": 3.437207000000001,
+        "iterations": 1000000,
+        "operationsPerSecond": 290933889.05585253,
+        "memoryDelta": {
+          "heapUsed": 19552,
+          "heapTotal": 0,
+          "rss": 286720,
+          "external": 40
+        }
+      }
+    },
+    {
+      "name": "Function Call Overhead: Result Pattern",
+      "results": {
+        "duration": 28.471929999999986,
+        "iterations": 1000000,
+        "operationsPerSecond": 35122311.69436004,
+        "memoryDelta": {
+          "heapUsed": -813632,
+          "heapTotal": 638976,
+          "rss": 1536000,
+          "external": -52566
+        }
+      }
+    },
+    {
+      "name": "Deep Nesting: Direct Function Calling",
+      "results": {
+        "duration": 8.836409000000003,
+        "iterations": 100000,
+        "operationsPerSecond": 11316814.33034618,
+        "memoryDelta": {
+          "heapUsed": 19272,
+          "heapTotal": 262144,
+          "rss": 294912,
+          "external": 0
+        }
+      }
+    },
+    {
+      "name": "Deep Nesting: Result Pattern",
+      "results": {
+        "duration": 16.45110599999998,
+        "iterations": 100000,
+        "operationsPerSecond": 6078618.665517085,
+        "memoryDelta": {
+          "heapUsed": 719864,
+          "heapTotal": 0,
+          "rss": 0,
+          "external": 0
+        }
+      }
+    },
+    {
+      "name": "Error Handling: Direct Result",
+      "results": {
+        "duration": 6948.017311999999,
+        "iterations": 3096,
+        "operationsPerSecond": 445.5947446551211,
+        "memoryDelta": {
+          "heapUsed": 1324232,
+          "heapTotal": 0,
+          "rss": -4542464,
+          "external": 0
+        }
+      }
+    },
+    {
+      "name": "Error Handling: Result Pattern",
+      "results": {
+        "duration": 6624.459467999999,
+        "iterations": 3096,
+        "operationsPerSecond": 467.35888640506965,
+        "memoryDelta": {
+          "heapUsed": 1271432,
+          "heapTotal": 0,
+          "rss": 0,
+          "external": 0
+        }
+      }
+    },
+    {
+      "name": "Memory Usage: Plain Objects",
+      "results": {
+        "duration": 53.96483900000021,
+        "iterations": 10,
+        "operationsPerSecond": 185.3058433103073,
+        "memoryDelta": {
+          "heapUsed": 378248,
+          "heapTotal": 4194304,
+          "rss": 4182016,
+          "external": -147
+        }
+      }
+    },
+    {
+      "name": "Memory Usage: Result Objects",
+      "results": {
+        "duration": 257.1394240000009,
+        "iterations": 10,
+        "operationsPerSecond": 38.88940810569742,
+        "memoryDelta": {
+          "heapUsed": 9753864,
+          "heapTotal": 21233664,
+          "rss": 23322624,
+          "external": 0
+        }
+      }
+    }
+  ]
+}
