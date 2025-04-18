@@ -162,19 +162,19 @@ export function errorHandlingPipelineExample() {
     }
 
     // Define operation functions
-    function validateInput(input: string): Result<string, ValidationError> {
+    function validateInput(input: string) {
         return input.length >= 3
             ? success(input)
             : error(new ValidationError("input", "Input must be at least 3 characters"));
     }
 
-    function fetchData(input: string): Result<any, NetworkError> {
+    function fetchData(input: string) {
         return input === "error"
             ? error(new NetworkError(500, "Server error"))
             : success({ id: 1, data: `Data for ${input}` });
     }
 
-    function saveToDatabase(data: any): Result<string, DatabaseError> {
+    function saveToDatabase(data: any) {
         return data.id > 100
             ? error(new DatabaseError("DB_ERROR", "Invalid ID range"))
             : success(`Saved ${data.id}`);
@@ -263,10 +263,10 @@ export function practicalErrorHandlingExample() {
 
     // Example usage
     const validationErr = error(new Error("Invalid email format"));
-    validationErr.error.name = "ValidationError";
+    validationErr.status === 'error' && (validationErr.error.name = "ValidationError");
 
     const dbErr = error(new Error("Query execution failed"));
-    dbErr.error.name = "DatabaseError";
+    dbErr.status === 'error' && (dbErr.error.name = "DatabaseError");
 
     logError("user-registration", validationErr);
     logError("db-query", dbErr);
@@ -358,10 +358,10 @@ export function practicalErrorHandlingExample() {
 
     // Example usage
     const validationError = error(new Error("Invalid input"));
-    validationError.error.name = "ValidationError";
+    validationError.status === 'error' && (validationError.error.name = "ValidationError");
 
     const networkError = error(new Error("Connection timeout"));
-    networkError.error.name = "NetworkError";
+    networkError.status === 'error' && (networkError.error.name = "NetworkError");
 
     const unknownError = error(new Error("Something unexpected"));
 
@@ -401,4 +401,4 @@ function runTapErrorExamples() {
 }
 
 // Uncomment to run
-runTapErrorExamples();
+// runTapErrorExamples();
