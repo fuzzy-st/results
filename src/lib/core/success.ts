@@ -5,6 +5,6 @@ import type { Result } from "~/types";
   *
   * @param data - The data to wrap
   */
-export function success<T>(data: T): Result<T> {
-    return { status: "success", data };
+export function success<T, E = never>(data: T): Result<T, E> {
+  return { status: "success", data };
 }
