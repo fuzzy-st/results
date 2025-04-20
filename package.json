@@ -7,16 +7,21 @@
   "types": "dist/main.d.ts",
   "type": "module",
   "files": [
-    "src/lib",
-    "src/docs"
+    "src/lib/core/*",
+    "src/lib/transformers/*",
+    "src/lib/async/*",
+    "src/docs/*"
   ],
   "keywords": [
-    "benchmark",
-    "performance",
-    "testing",
-    "profiling",
-    "statistics",
-    "metrics"
+    "typescript",
+    "result",
+    "functional",
+    "error-handling",
+    "async",
+    "promises",
+    "railway",
+    "monads",
+    "type-safety"
   ],
   "author": "aFuzzyBear",
   "license": "MIT",
@@ -55,12 +60,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/fuzzy-st/benchmarks.git"
+    "url": "git+https://github.com/fuzzy-st/results.git"
   },
   "bugs": {
-    "url": "https://github.com/fuzzy-st/benchmarks/issues"
+    "url": "https://github.com/fuzzy-st/results/issues"
   },
-  "homepage": "https://github.com/fuzzy-st/benchmarks#readme",
+  "homepage": "https://github.com/fuzzy-st/results#readme",
   "dependencies": {
     "@fuzzy-street/benchmarks": "^0.3.2"
   }
