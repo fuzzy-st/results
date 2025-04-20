@@ -1,6 +1,6 @@
 {
   "name": "@fuzzy-street/results",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Type-safe custom `Result<T,E>` library for TypeScript, inspired by Rust's Result and Option types. Provides a way to handle success and error cases in a type-safe manner, making it easier to write robust and maintainable code.",
   "main": "dist/main.js",
   "module": "dist/main.mjs",
