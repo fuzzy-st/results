@@ -7,10 +7,6 @@ settings:
 importers:
 
   .:
-    dependencies:
-      '@fuzzy-street/benchmarks':
-        specifier: ^0.3.2
-        version: 0.3.2
     devDependencies:
       '@biomejs/biome':
         specifier: ^1.9.4
@@ -21,6 +17,9 @@ importers:
       '@commitlint/config-conventional':
         specifier: ^19.8.0
         version: 19.8.0
+      '@fuzzy-street/benchmarks':
+        specifier: ^0.3.2
+        version: 0.3.2
       '@types/node':
         specifier: ^22.14.1
         version: 22.14.1
