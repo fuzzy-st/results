@@ -6,10 +6,36 @@
   "module": "dist/main.mjs",
   "types": "dist/main.d.ts",
   "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/main.d.ts",
+      "import": "./dist/main.mjs",
+      "require": "./dist/main.js"
+    },
+    "./core": {
+      "types": "./dist/lib/core/index.d.ts",
+      "import": "./dist/lib/core/index.mjs",
+      "require": "./dist/lib/core/index.js"
+    },
+    "./transformers": {
+      "types": "./dist/lib/transformers/index.d.ts",
+      "import": "./dist/lib/transformers/index.mjs",
+      "require": "./dist/lib/transformers/index.js"
+    },
+    "./async": {
+      "types": "./dist/lib/async/index.d.ts",
+      "import": "./dist/lib/async/index.mjs",
+      "require": "./dist/lib/async/index.js"
+    },
+    "./types": {
+      "types": "./dist/types.d.ts",
+      "import": "./dist/types.mjs",
+      "require": "./dist/types.js"
+    },
+    "./package.json": "./package.json"
+  },
   "files": [
-    "src/lib/core/*",
-    "src/lib/transformers/*",
-    "src/lib/async/*",
+    "src/lib/*",
     "src/docs/*"
   ],
   "keywords": [
@@ -53,8 +79,10 @@
     "standard-version": "^9.5.0",
     "tsup": "^8.4.0",
     "tsx": "^4.19.3",
-    "typescript": "^5.8.3"
+    "typescript": "^5.8.3",
+    "@fuzzy-street/benchmarks": "^0.3.2"
   },
+  "dependencies": {},
   "directories": {
     "doc": "docs"
   },
@@ -65,8 +93,5 @@
   "bugs": {
     "url": "https://github.com/fuzzy-st/results/issues"
   },
-  "homepage": "https://github.com/fuzzy-st/results#readme",
-  "dependencies": {
-    "@fuzzy-street/benchmarks": "^0.3.2"
-  }
+  "homepage": "https://github.com/fuzzy-st/results#readme"
 }
