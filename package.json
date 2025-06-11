@@ -31,8 +31,7 @@
       "types": "./dist/types.d.ts",
       "import": "./dist/types.mjs",
       "require": "./dist/types.js"
-    },
-    "./package.json": "./package.json"
+    }
   },
   "files": [
     "src/lib/*",
