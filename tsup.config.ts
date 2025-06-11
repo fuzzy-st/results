@@ -2,11 +2,12 @@ import { defineConfig } from 'tsup';
 
 export default defineConfig({
   entry: ['src/main.ts'],
-  format: ['cjs', 'esm'],
+  format: ['esm'],
+  name: "@fuzzy-street/results",
   dts: true,
   sourcemap: true,
   clean: true,
-  minify: true,
-  splitting:true,
+  platform: "neutral",
+  splitting: true,
   treeshake: true,
 });
