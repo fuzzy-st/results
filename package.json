@@ -1,33 +1,33 @@
 {
   "name": "@fuzzy-street/results",
-  "version": "0.3.3",
+  "version": "0.3.4",
   "description": "Type-safe custom `Result<T,E>` library for TypeScript, inspired by Rust's Result and Option types. Provides a way to handle success and error cases in a type-safe manner, making it easier to write robust and maintainable code.",
   "main": "dist/main.mjs",
   "module": "dist/main.mjs",
   "types": "dist/main.d.ts",
   "type": "module",
-"exports": {
-  ".": {
-    "types": "./dist/main.d.ts",
-    "import": "./dist/main.mjs"
+  "exports": {
+    ".": {
+      "types": "./dist/main.d.ts",
+      "import": "./dist/main.mjs"
+    },
+    "./core": {
+      "types": "./dist/lib/core/index.d.ts",
+      "import": "./dist/lib/core/index.mjs"
+    },
+    "./transformers": {
+      "types": "./dist/lib/transformers/index.d.ts",
+      "import": "./dist/lib/transformers/index.mjs"
+    },
+    "./async": {
+      "types": "./dist/lib/async/index.d.ts",
+      "import": "./dist/lib/async/index.mjs"
+    },
+    "./types": {
+      "types": "./dist/types.d.ts",
+      "import": "./dist/types.mjs"
+    }
   },
-  "./core": {
-    "types": "./dist/lib/core/index.d.ts",
-    "import": "./dist/lib/core/index.mjs"
-  },
-  "./transformers": {
-    "types": "./dist/lib/transformers/index.d.ts",
-    "import": "./dist/lib/transformers/index.mjs"
-  },
-  "./async": {
-    "types": "./dist/lib/async/index.d.ts",
-    "import": "./dist/lib/async/index.mjs"
-  },
-  "./types": {
-    "types": "./dist/types.d.ts",
-    "import": "./dist/types.mjs"
-  }
-},
   "files": [
     "dist"
   ],
