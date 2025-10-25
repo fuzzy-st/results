@@ -15,9 +15,11 @@ import type { Result } from "~/types";
  * }
  * ```
 */
-export function isSuccess<T, E>(
-    result: Result<T, E>,
-): result is { status: "success"; data: T } {
+export function isSuccess<R extends Result<any, any>>
+    // The use of <any,any> is to allow for type preservation
+    (
+        result: R,
+    ): result is Extract<R, { status: "success" }> {
     return result !== null
         && typeof result === "object"
         && result.status === "success"

@@ -15,7 +15,9 @@ import type { Result } from "~/types";
  * // The type of unwrapped is T
  * ```
  */
-export function unwrap<T, E extends Error>(result: Result<T, E>): T {
+export function unwrap<R extends Result<any, any>>(
+    result: R
+): Extract<R, { status: "success" }>["data"] {
     if (result.status === "error") {
         throw result.error;
     }
