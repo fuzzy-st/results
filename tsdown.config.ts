@@ -1,4 +1,4 @@
-import { defineConfig } from 'tsup';
+import { defineConfig } from 'tsdown';
 
 export default defineConfig({
   entry: {
@@ -9,16 +9,20 @@ export default defineConfig({
     'types': 'src/types.ts',
   },
   format: ['esm'],
-   outExtension() {
-    return {
-      js: '.mjs',
-    };
-  },
+  //  outExtension() {
+  //   return {
+  //     js: '.mjs',
+  //   };
+  // },
+  outExtensions: () => ({
+    js: '.mjs'
+  }),
   name: "@fuzzy-street/results",
   dts: true,
   sourcemap: true,
   clean: true,
   platform: "neutral",
-  splitting: true,
+  // splitting: true,
   treeshake: true,
+  target: false,
 });

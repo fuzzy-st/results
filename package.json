@@ -47,7 +47,7 @@
   "packageManager": "pnpm@10.7.1",
   "scripts": {
     "dev": "tsx --watch --no-cache src/main.ts",
-    "build": "tsup",
+    "build": "tsdown",
     "examples": "tsx --no-cache src/examples.ts",
     "test": "node --import tsx --experimental-test-coverage --test-reporter=spec --test \"**/*.test.{ts,js}\"",
     "test:ci": "node --import tsx --experimental-test-coverage --test-reporter=spec --test \"**/*.test.{ts,js}\" || echo 'No test files found or tests failed'",
@@ -71,7 +71,7 @@
     "@types/node": "^22.15.31",
     "lint-staged": "^15.5.2",
     "standard-version": "^9.5.0",
-    "tsup": "^8.5.0",
+    "tsdown": "^0.18.3",
     "tsx": "^4.20.1",
     "typescript": "^5.8.3"
   },
@@ -85,5 +85,9 @@
   "bugs": {
     "url": "https://github.com/fuzzy-st/results/issues"
   },
-  "homepage": "https://github.com/fuzzy-st/results#readme"
+  "homepage": "https://github.com/fuzzy-st/results#readme",
+  "dependencies": {
+    "acorn": "^8.15.0",
+    "acorn-walk": "^8.3.4"
+  }
 }
