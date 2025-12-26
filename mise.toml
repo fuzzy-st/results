@@ -1,3 +1,27 @@
 [tools]
 node = "lts"
 pnpm = "latest"
+hk = "latest"
+biome = "latest"
+"npm:commitlint" = "latest"
+"npm:tsx" = "latest"
+pkl = "latest"
+
+[env]
+NODE_ENV = "--loader=tsx/esm"
+HK_MISE = 1
+
+[tasks."setup:git-hooks"]
+run = "hk install"
+description = "Set up Git hooks using hk."
+
+[tasks."dev"]
+run = "pnpm run dev"
+description = "Run the development environment, with hot reloading of the library rebuilds."
+
+[tasks."build"]
+run = "pnpm run build"
+description = "Build the library."
+
+[tasks."test"]
+run = "pnpm run test"
