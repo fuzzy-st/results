@@ -8,7 +8,7 @@ import type { Result } from "~/types";
  * @typeParam E - The type of error contained in the Result
  * @throws {E} The error contained in the Result if status is 'error'
  * @returns The data contained in the Result if status is 'success'
- * 
+ *
  * @example
  * ```ts
  * const unwrapped = unwrap(result);
@@ -16,10 +16,10 @@ import type { Result } from "~/types";
  * ```
  */
 export function unwrap<R extends Result<any, any>>(
-    result: R
+  result: R,
 ): Extract<R, { status: "success" }>["data"] {
-    if (result.status === "error") {
-        throw result.error;
-    }
-    return result.data;
+  if (result.status === "error") {
+    throw result.error;
+  }
+  return result.data;
 }

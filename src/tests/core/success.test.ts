@@ -1,91 +1,90 @@
-import assert from 'node:assert';
-import test, { describe } from 'node:test';
-import { success } from '~/lib/core/success';
-import { isSuccess } from '~/lib/core/isSuccess';
+import assert from "node:assert";
+import test, { describe } from "node:test";
+import { isSuccess } from "~/lib/core/isSuccess";
+import { success } from "~/lib/core/success";
 
-describe('(CORE) `success` function', () => {
-    test('should create a successful result with a number', () => {
-        const result = success(42);
+describe("(CORE) `success` function", () => {
+  test("should create a successful result with a number", () => {
+    const result = success(42);
 
-        assert.strictEqual(isSuccess(result), true);
-        assert.strictEqual(result.status, 'success');
-        assert.strictEqual(result.data, 42);
-    });
+    assert.strictEqual(isSuccess(result), true);
+    assert.strictEqual(result.status, "success");
+    assert.strictEqual(result.data, 42);
+  });
 
-    test('should create a successful result with a string', () => {
-        const result = success('hello');
+  test("should create a successful result with a string", () => {
+    const result = success("hello");
 
-        assert.strictEqual(isSuccess(result), true);
-        assert.strictEqual(result.status, 'success');
-        assert.strictEqual(result.data, 'hello');
-    });
+    assert.strictEqual(isSuccess(result), true);
+    assert.strictEqual(result.status, "success");
+    assert.strictEqual(result.data, "hello");
+  });
 
-    test('should create a successful result with an object', () => {
-        const user = { id: 1, name: 'John' };
-        const result = success(user);
+  test("should create a successful result with an object", () => {
+    const user = { id: 1, name: "John" };
+    const result = success(user);
 
-        assert.strictEqual(isSuccess(result), true);
-        assert.strictEqual(result.status, 'success');
-        assert.deepStrictEqual(result.data, user);
-    });
+    assert.strictEqual(isSuccess(result), true);
+    assert.strictEqual(result.status, "success");
+    assert.deepStrictEqual(result.data, user);
+  });
 
-    test('should create a successful result with null', () => {
-        const result = success(null);
+  test("should create a successful result with null", () => {
+    const result = success(null);
 
-        assert.strictEqual(isSuccess(result), true);
-        assert.strictEqual(result.status, 'success');
-        assert.strictEqual(result.data, null);
-    });
+    assert.strictEqual(isSuccess(result), true);
+    assert.strictEqual(result.status, "success");
+    assert.strictEqual(result.data, null);
+  });
 
-    test('should create a successful result with undefined', () => {
-        const result = success(undefined);
+  test("should create a successful result with undefined", () => {
+    const result = success(undefined);
 
-        assert.strictEqual(isSuccess(result), true);
-        assert.strictEqual(result.status, 'success');
-        assert.strictEqual(result.data, undefined);
-    });
+    assert.strictEqual(isSuccess(result), true);
+    assert.strictEqual(result.status, "success");
+    assert.strictEqual(result.data, undefined);
+  });
 
-    test('should maintain type inference', () => {
-        // Number
-        const numberResult = success(42);
-        //@ts-ignore
-        assert.deepStrictEqual<number>(numberResult.status, 'success');
-        //@ts-ignore
-        assert.deepStrictEqual<number>(numberResult.data, 42);
+  test("should maintain type inference", () => {
+    // Number
+    const numberResult = success(42);
+    //@ts-expect-error
+    assert.deepStrictEqual<number>(numberResult.status, "success");
+    //@ts-expect-error
+    assert.deepStrictEqual<number>(numberResult.data, 42);
 
-        // String
-        const stringResult = success('hello');
-        //@ts-ignore
-        assert.deepStrictEqual<string>(stringResult.data, 'hello');
+    // String
+    const stringResult = success("hello");
+    //@ts-expect-error
+    assert.deepStrictEqual<string>(stringResult.data, "hello");
 
-        // Object
-        const objectResult = success({ id: 1, name: 'John' });
-        //@ts-ignore
-        assert.deepStrictEqual(objectResult.data, { id: 1, name: 'John' });
+    // Object
+    const objectResult = success({ id: 1, name: "John" });
+    //@ts-expect-error
+    assert.deepStrictEqual(objectResult.data, { id: 1, name: "John" });
 
-        // Null
-        const nullResult = success(null);
-        //@ts-ignore
-        assert.deepStrictEqual<null>(nullResult.data, null);
-    });
+    // Null
+    const nullResult = success(null);
+    //@ts-expect-error
+    assert.deepStrictEqual<null>(nullResult.data, null);
+  });
 
-    test('should work with complex types', () => {
-        // Union type
-        const unionResult = success<number | string>(42);
-        assert.strictEqual(isSuccess(unionResult), true);
-        //@ts-ignore
-        assert.strictEqual(unionResult.data, 42);
+  test("should work with complex types", () => {
+    // Union type
+    const unionResult = success<number | string>(42);
+    assert.strictEqual(isSuccess(unionResult), true);
+    //@ts-expect-error
+    assert.strictEqual(unionResult.data, 42);
 
-        // Generic type
-        interface User {
-            id: number;
-            name: string;
-        }
-        const user: User = { id: 1, name: 'John' };
-        const genericResult = success<User>(user);
-        assert.strictEqual(isSuccess(genericResult), true);
-        //@ts-ignore
-        assert.deepStrictEqual(genericResult.data, user);
-    });
-})
-
+    // Generic type
+    interface User {
+      id: number;
+      name: string;
+    }
+    const user: User = { id: 1, name: "John" };
+    const genericResult = success<User>(user);
+    assert.strictEqual(isSuccess(genericResult), true);
+    //@ts-expect-error
+    assert.deepStrictEqual(genericResult.data, user);
+  });
+});

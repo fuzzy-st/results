@@ -22,7 +22,7 @@ local linters = new Mapping<String, Step> {
       "**/coverage/**"
     )
     check = "biome check {{files}}"
-    fix = "biome check --write {{files}}"
+    fix = "biome check --write --unsafe {{files}}"
   }
   
   ["pkl"] {

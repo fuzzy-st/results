@@ -13,7 +13,8 @@
       "!!**/dist",
       "!!**/coverage",
       "!!**/build",
-      "!!**/.turbo"
+      "!!**/.turbo",
+      "!!**/*.tests.*"
     ]
   },
   "formatter": {
