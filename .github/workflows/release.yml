@@ -6,12 +6,15 @@ on:
       - 'v*'
 
 permissions:
+  id-token: write # For NPM OIDC connector
   contents: write
-
+  
+  
 jobs:
   release:
     runs-on: ubuntu-latest
-    
+    environment: release-env
+        
     steps:
     - uses: actions/checkout@v4
       with:
@@ -20,9 +23,12 @@ jobs:
     - name: Use Node.js
       uses: actions/setup-node@v4
       with:
-        node-version: '22.x'
+        node-version: '24'
         registry-url: 'https://registry.npmjs.org'
         
+    - name: Remove npmrc 
+      run: rm -f ~/.npmrc
+    
     - name: Setup PNPM
       uses: pnpm/action-setup@v2
       with:
@@ -31,18 +37,12 @@ jobs:
     - name: Install dependencies
       run: pnpm install --frozen-lockfile
       
-    # - name: Lint
-    #   run: pnpm exec biome check .
-      
-    # - name: Type check
-    #   run: pnpm check
     - name: Test
       run: pnpm test
       
     - name: Build
       run: pnpm build
-      
-      
+
     - name: Generate changelog
       id: changelog
       uses: TriPSs/conventional-changelog-action@v5
@@ -62,6 +62,4 @@ jobs:
         body: ${{ steps.changelog.outputs.clean_changelog }}
         
     - name: Publish to npm
-      run: pnpm publish --no-git-checks
-      env:
-        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      run: npm publish 
